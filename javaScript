@@ -1,0 +1,31 @@
+import React, { useState } from "react";
+
+function FoodOrderForm() {
+
+  const [name, setName]= useState("");
+  const [phone, setPhone]= useState("");
+  const [address, setAdress]= useState("");
+  const [order, setOrder]= useState("");
+  const handleSubmit = (e) => {
+     e.preventDefault();
+     alert(
+      `Order Successfull! \n Your order was ${order} \n Please show your confirmation number for pickup`
+     )
+   };
+  return (
+    <form onSubmit={handleSubmit}>
+    <label htmlFor="name" > Name </label>
+    <input id="name" label="name" value={name} onChange={(e) => setName(e.target.value)}/>
+     <label htmlFor="phone" > Phone </label>
+    <input id="phone" label="phone" value={phone} onChange={(e) => setPhone(e.target.value)}/>
+     <label htmlFor="address" > Address </label>
+    <input id="address" label="address" value={address} onChange={(e) => setAdress(e.target.value)}/>
+     <label htmlFor="order" > Order </label>
+    
+    <input id="order" label="order" value={order} onChange={(e) =>setOrder(e.target.value)}/>
+    <button type="submit">Submit Order</button>
+    </form>
+  )
+}
+
+export default FoodOrderForm;
